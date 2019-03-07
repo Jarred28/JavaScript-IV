@@ -52,33 +52,36 @@ class GameObject{
   
 
 /*
-=== Humanoid (Having an appearance or character resembling that of a human.) ===
-* team
-* weapons
-* language
-* greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-* should inherit destroy() from GameObject through CharacterStats
-* should inherit takeDamage() from CharacterStats
+  === Humanoid (Having an appearance or character resembling that of a human.) ===
+  * team
+  * weapons
+  * language
+  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  * should inherit destroy() from GameObject through CharacterStats
+  * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(humanoidOptions) {
-  CharacterStats.call(this, humanoidOptions);
-  this.team = humanoidOptions.team;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
+
+
+class Humanoid extends CharacterStats{
+  constructor(humAttrs){
+    super(humAttrs);
+    this.team = humAttrs.team;
+    this.weapons = humAttrs.weapons;
+    this.language = humAttrs.language;
+  }
+  greet(){
+    return `${this.name} offers a greeting in ${this.language}`;
+
+  }
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 
 /*
-* Inheritance chain: GameObject -> CharacterStats -> Humanoid
-* Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-* Instances of CharacterStats should have all of the same properties as GameObject.
+  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
+  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
+  * Instances of CharacterStats should have all of the same properties as GameObject.
 */
+
 
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
