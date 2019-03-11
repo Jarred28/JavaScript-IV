@@ -2,7 +2,7 @@
 
 This challenge focuses on classes in JavaScript using the new `class` keyword.
 
-## Set Up The Project With Git
+## Set Up The Project With Gitt
 
 **Follow these steps to set up and work on your project:**
 
